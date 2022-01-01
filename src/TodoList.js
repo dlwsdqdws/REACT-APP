@@ -1,4 +1,7 @@
 import React, {Component, Fragment} from 'react';
+import TodoItem from './TodoItem';
+import axois from 'axios';
+import './style.css';
 
 class TodoList extends Component{
 
@@ -8,57 +11,82 @@ class TodoList extends Component{
             inputValue: '',
             list: []
         }
+        this.handleInputChage = this.handleInputChage.bind(this);
+        this.handleBtnClick = this.handleBtnClick.bind(this);
+        this.handleItemDelete = this.handleItemDelete.bind(this);
     }
 
     render(){
         return (
             <Fragment>
                 <div>
+                    <lable htmlFor = "insertArea">
+                        Input Targets
+                    </lable>
+                    {/* input box */}
                     <input 
+                    id = "insertArea"
+                    className = 'input'
                     value = {this.state.inputValue}
-                    onChange = {this.handleInputChage.bind(this)}
+                    onChange = {this.handleInputChage}
+                    // ref = {(input) => (this.input = input)}
                      />
-
-                    <button onClick = {this.handleBtnClick.bind(this)}>
+                    {/* submit bottom */}
+                    <button onClick = {this.handleBtnClick}>
                         submit
                     </button>
                 </div>
                 <ul>
-                    {
-                        this.state.list.map((item, index) => {
-                            return (
-                            <li 
-                                key = {index} 
-                                onClick = {this.handleItemDelete.bind(this, index)}>
-                                    {item}
-                            </li>
-                            )
-                        })
-                    }
+                    {this.getTodoItem()}
                 </ul>
             </Fragment>
         )
     }
 
-    handleInputChage(e) {
-        this.setState({
-            inputValue : e.target.value
+    getTodoItem() { 
+        return this.state.list.map((item, index) => {
+            return (
+                <TodoItem 
+                key = {item}
+                content = {item} 
+                index = {index} 
+                deleteItem = {this.handleItemDelete}
+                />
+            // <li 
+            //     key = {index} 
+            //     onClick = {this.handleItemDelete.bind(this, index)}
+            //     dangerouslySetInnerHTML = {{__html: item}}
+            // >
+            // </li>
+            )
         })
+    }
+
+    componentDidMount() {
+        axois.get('Desktop/REACT-APP')
+        .then(() => {alert('succ')})
+        .catch(() => {alert('error')})
+    }
+
+    handleInputChage(e) {
+        const value = e.target.value; 
+        this.setState(() => ({
+            inputValue : value
+        }))
     }
 
     handleBtnClick() {
-        this.setState({
-            list : [...this.state.list, this.state.inputValue],
+        this.setState((prevState) => ({
+            list : [...prevState.list, prevState.inputValue],
             inputValue : ''
-        })
+        }))
     }
 
     handleItemDelete(index) {
-        const list = [...this.state.list];  //copy this.state.list
-        list.splice(index, 1);
-
-        this.setState({
-            list : list
+        this.setState((prevState) => {
+            const list = [...prevState.list];  //copy this.state.list
+            list.splice(index, 1);
+            return {list}
         })
     }
 }
