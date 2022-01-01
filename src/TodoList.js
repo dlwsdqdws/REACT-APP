@@ -63,9 +63,14 @@ class TodoList extends Component{
     }
 
     componentDidMount() {
-        axois.get('Desktop/REACT-APP')
-        .then(() => {alert('succ')})
-        .catch(() => {alert('error')})
+        axois.get('http://localhost.charlesproxy.com:3000/api/todolist')
+        .then((res) => {
+            // console.log(res.data);
+            this.setState(() => ({
+                list : [...res.data]
+            }));
+        })
+        .catch(() => {alert('error');})
     }
 
     handleInputChage(e) {
