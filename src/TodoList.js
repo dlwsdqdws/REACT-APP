@@ -1,9 +1,8 @@
 import React, {Component, Fragment} from 'react';
 import 'antd/dist/antd.css';
-import { Input, Button, List,} from 'antd';
-import axois from 'axios';
 import store from './store';
 import {getInputChangeAction, getAddItemAction, getDeleteItemAction} from './store/actionCreators';
+import TodoListUI from './TodoListUI';
 
 
 class TodoList extends Component {
@@ -16,32 +15,17 @@ class TodoList extends Component {
             this.setState(store.getState())
         });
         this.handleBtnClick = this.handleBtnClick.bind(this);
+        this.handleItemDelete = this.handleItemDelete.bind(this);
     }
 
     render() {
-        return (
-            <div style = {{marginTop : '10px', marginLeft : '10px'}}>
-                <div>
-                    <Input 
-                        value = {this.state.inputValue} 
-                        placeholder = 'todo info' 
-                        style = {{width : '300px', marginRight : '10px'}} 
-                        onChange = {this.handleInputChange}
-                    />
-                    <Button type="primary" onClick = {this.handleBtnClick} >Submit</Button>
-                </div>
-                <List
-                    style = {{marginTop : '10px', width : '300px'}}
-                    bordered
-                    dataSource={this.state.list}
-                    renderItem={(item, index) => (
-                        <List.Item onClick = {this.handleItemDelete.bind(this, index)}>
-                        {item}
-                        </List.Item>
-                    )}
-                />
-            </div>
-        )
+        return <TodoListUI 
+            inputValue = {this.state.inputValue}
+            list = {this.state.list}
+            handleInputChange = {this.handleInputChange}
+            handleBtnClick = {this.handleBtnClick}
+            handleItemDelete = {this.handleItemDelete}
+        />
     }
 
     handleInputChange(e) {
@@ -59,17 +43,6 @@ class TodoList extends Component {
         store.dispatch(action);
     }
 }
-
-    // componentDidMount() {
-    //     axois.get('http://localhost.charlesproxy.com:3000/api/todolist')
-    //     .then((res) => {
-    //         // console.log(res.data);
-    //         this.setState(() => ({
-    //             list : [...res.data]
-    //         }));
-    //     })
-    //     .catch(() => {alert('error');})
-    // }
 
    
 
