@@ -4,9 +4,13 @@ import axois from 'axios';
 import {initListAction} from './actionCreators';
 
 function* getInitList() {
-    const res = yield axois.get('/todolist.json');
-    const action = initListAction(res.data);
-    yield put(action);
+    try {
+        const res = yield axois.get('/todolist.json');
+        const action = initListAction(res.data);
+        yield put(action);
+    }catch(e) {
+        console.log('axois request failed');
+    }
 }
 
 //generator function
