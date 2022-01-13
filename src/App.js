@@ -1,10 +1,14 @@
 import React, {Component} from 'react';
 import Header from './common/header';
+import {GolbalIcon} from './statics/iconfont/iconfont';
 
 class App extends Component{
     render() {
         return (
-            <Header />
+            <div>
+                <Header />
+                <GolbalIcon />
+            </div>
         );
     }
 }
