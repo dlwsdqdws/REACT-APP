@@ -1,14 +1,16 @@
 import React, {Component} from 'react';
+import { Provider } from 'react-redux';
 import Header from './common/header';
 import {GolbalIcon} from './statics/iconfont/iconfont';
+import store from './store';
 
 class App extends Component{
     render() {
         return (
-            <div>
+            <Provider store = {store}>
                 <Header />
                 <GolbalIcon />
-            </div>
+            </Provider>
         );
     }
 }
