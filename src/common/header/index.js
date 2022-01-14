@@ -22,19 +22,34 @@ import {
 class Header extends Component {
 
     getListArea ()  {
-        const {focused, list} = this.props;
-        if (focused) {
+        const {focused, list, page, totalPage, mouseIn, handleMouseEnter, handleMouseLeave, handleChangePage} = this.props;
+        const newList = list.toJS();
+        const pageList = [];
+
+        if (newList.length){
+            for (let i = (page-1)*10; i < Math.min(newList.length, page * 10); i++){
+                pageList.push(
+                    <SearchInfoItem key = {newList[i]}>{newList[i]}</SearchInfoItem>
+                )
+            }
+        }
+
+        if (focused || mouseIn) {
             return (
-                <SearchInfo>
+                <SearchInfo 
+                    onMouseEnter = {handleMouseEnter}
+                    onMouseLeave = {handleMouseLeave}
+                >
                     <SearchInfoTitle>
                         Hot
-                        <SearchInfoSwitch>Change</SearchInfoSwitch>
+                        <SearchInfoSwitch onClick = {() => handleChangePage(page, totalPage, this.spinIcon)}>
+                            <span ref = {(icon) => {this.spinIcon = icon}}  className={'iconfont spin'}>&#xe851;</span>
+                            Change
+                        </SearchInfoSwitch>
                     </SearchInfoTitle>
                     <SearchInfoList>
                         {
-                            list.map((item) => {
-                                return <SearchInfoItem key = {item}>{item}</SearchInfoItem>
-                            })
+                            pageList
                         }
                     </SearchInfoList>
                 </SearchInfo>
@@ -68,7 +83,7 @@ class Header extends Component {
                                 onBlur={handleInputBlur}
                             ></NavSearch>
                         </CSSTransition>
-                        <span className={focused ? 'focused iconfont' : 'iconfont'}>&#xe617;</span>
+                        <span className={focused ? 'focused iconfont zoom' : 'iconfont zoom'}>&#xe617;</span>
                         {this.getListArea()}
                     </SearchWrapper>
                 </Nav>
@@ -88,7 +103,10 @@ class Header extends Component {
 const mapStateToProps = (state) => {
     return {
         focused: state.getIn(['header', 'focused']),
-        list : state.getIn(['header', 'list'])
+        list : state.getIn(['header', 'list']),
+        page : state.getIn(['header', 'page']),
+        totalPage : state.getIn(['header', 'totalPage']),
+        mouseIn : state.getIn(['header', 'mouseIn'])
     }
 }
 
@@ -101,6 +119,29 @@ const mapDispatchToProps = (dispatch) => {
 
         handleInputBlur() {
             dispatch(actionCreators.searchBlur());
+        },
+
+        handleMouseEnter() {
+            dispatch(actionCreators.mouseEnter());
+        },
+
+        handleMouseLeave() {
+            dispatch(actionCreators.mouseLeave());
+        },
+
+        handleChangePage(page, totalPage, spin) {
+            let orginAngle = spin.style.transform.replace(/[^0-9]/ig, '');
+            if (orginAngle) {
+                orginAngle = parseInt(orginAngle, 10);
+            }else{
+                orginAngle = 0;
+            }
+            spin.style.transform = 'rotate('+ (orginAngle + 360) + 'deg)';
+            if (page < totalPage) {
+                dispatch(actionCreators.changePage(page+1));
+            }else{
+                dispatch(actionCreators.changePage(1));
+            }
         }
     }
 }

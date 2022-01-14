@@ -1,4 +1,4 @@
 {
     "success" : true,
-    "data" : ["exams", "education", "USC", "Trojan", "Viterbi"]
+    "data" : ["exams", "education", "USC", "Trojan", "Viterbi", "c++", "python2", "python3", "java", "javascript", "css", "html", "ruby", "rust", "go", "bazel"]
 }
