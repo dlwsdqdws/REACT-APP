@@ -11,6 +11,10 @@ export const HomeLeft = styled.div`
     margin-left : 15px;
     margin-top : 30px;
     width : 625px;
+    .banner-img {
+        width : 625px;
+        height : 270px;
+    }
 `;
 
 export const HomeRight = styled.div`

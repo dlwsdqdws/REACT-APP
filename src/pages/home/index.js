@@ -1,4 +1,8 @@
 import React, {Component} from 'react';
+import Topic from './components/Topic';
+import List from './components/List';
+import Writer from './components/Writer';
+import Recommend from './components/Recommend';
 import {
     HomeWrapper,
     HomeLeft,
@@ -10,9 +14,14 @@ class Home extends Component {
         return (
             <HomeWrapper>
                 <HomeLeft>
-                    <img src = "src/statics/65D47DAAC9DF41201AF806330F21CC11.png"></img>
+                    <img className = 'banner-img' src = {require('/Users/elacutehoterku/Desktop/REACT-APP/src/statics/65D47DAAC9DF41201AF806330F21CC11.png')} />
+                    <Topic />
+                    <List />
                 </HomeLeft>
-                <HomeRight>right</HomeRight>
+                <HomeRight>
+                    <Recommend />
+                    <Writer />
+                </HomeRight>
             </HomeWrapper>
         )
     }
