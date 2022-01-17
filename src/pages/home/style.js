@@ -103,7 +103,7 @@ export const WriterWrapper = styled.div`
 
 export const WriterItem = styled.div`
     width : 278px;
-    height : 20px;
+    height : 30px;
     border: 1px solid #dcdcdc;
     border-radius : 10px;
     line-height : 27px;
