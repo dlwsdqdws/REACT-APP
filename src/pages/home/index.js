@@ -14,7 +14,7 @@ class Home extends Component {
         return (
             <HomeWrapper>
                 <HomeLeft>
-                    <img className = 'banner-img' src = {require('/Users/elacutehoterku/Desktop/REACT-APP/src/statics/65D47DAAC9DF41201AF806330F21CC11.png')} />
+                    <img className = 'banner-img' src = {require('/Users/elacutehoterku/Desktop/REACT-APP/src/statics/65D47DAAC9DF41201AF806330F21CC11.png')} alt = ''/>
                     <Topic />
                     <List />
                 </HomeLeft>
