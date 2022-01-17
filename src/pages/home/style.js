@@ -110,4 +110,5 @@ export const WriterItem = styled.div`
     font-size : 18px;
     fontweight : bold;
     color : #333;
+    background : pink;
 `;

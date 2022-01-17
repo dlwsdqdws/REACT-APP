@@ -17,7 +17,7 @@ class Writer extends Component {
 }
 
 const mapState = (state) => ({
-    name : state.getIn(['home', 'writterList'])
+    name : state.getIn(['home', 'writerList'])
 })
 
 export default connect(mapState, null)(Writer);
