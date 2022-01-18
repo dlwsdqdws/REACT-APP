@@ -64,7 +64,7 @@ class Header extends Component {
         const { focused, handleInputFocus, handleInputBlur, list } = this.props;
         return (
             <HeaderWrapper>
-                <Link to = './'>
+                <Link to = '/'>
                     <Logo />
                 </Link>
                 <Nav>

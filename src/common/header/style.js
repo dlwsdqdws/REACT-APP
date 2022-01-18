@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import logopic from "../../statics/logo.png";
 
 export const HeaderWrapper = styled.div`
+    z-index: 1;
+    position: relative;
     height : 58px;
     border-bottom: 1px solid #f0f0f0; 
 `;
@@ -61,7 +63,7 @@ export const SearchWrapper = styled.div`
 `;
 
 export const NavSearch = styled.input.attrs({
-    placeholder : 'search'
+    placeholder: 'search'
 })`
     width : 160px;
     height : 38px;
@@ -128,7 +130,7 @@ export const SearchInfoSwitch = styled.span`
     }
 `;
 
-export const SearchInfoList  = styled.div`
+export const SearchInfoList = styled.div`
     overflow : hidden;
 `;
 
