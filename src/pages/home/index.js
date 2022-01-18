@@ -26,7 +26,9 @@ class Home extends Component {
                     <Recommend />
                     <Writer />
                 </HomeRight>
-                {this.props.showScroll ? <BackTop onClick = {this.handleScrollTop}>BackTop</BackTop> : null}
+                {this.props.showScroll ? <BackTop onClick = {this.handleScrollTop}>
+                    <i className="iconfont">&#xe62d;</i>
+                </BackTop> : null}
             </HomeWrapper>
         )
     }
