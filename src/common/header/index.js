@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 import { actionCreators } from './store';
-import {Link} from 'react-router-dom';
-import { actionCreators as actionCreator } from './store';
+import { Link } from 'react-router-dom';
+import { actionCreators as headeractionCreators } from './store';
 import { actionCreators as loginActionCreators } from '../../pages/login/store'
 import {
     HeaderWrapper,
@@ -66,16 +66,16 @@ class Header extends Component {
         const { focused, handleInputFocus, handleInputBlur, list, login, logout } = this.props;
         return (
             <HeaderWrapper>
-                <Link to = '/'>
+                <Link to='/'>
                     <Logo />
                 </Link>
                 <Nav>
                     <NavItem className='left active'>Home</NavItem>
                     <NavItem className='left'>Download App</NavItem>
                     {
-                        login? 
-                        <NavItem onClick = {logout} className='right'>Logout</NavItem> : 
-                        <Link to='/login'><NavItem className='right'>Login</NavItem></Link>
+                        login ?
+                            <NavItem onClick={logout} className='right logout'>Logout</NavItem> :
+                            <Link to='/login'><NavItem className='right'>Login</NavItem></Link>
                     }
                     <NavItem className='right'>
                         <span className="iconfont">&#xe636;</span>
@@ -97,10 +97,12 @@ class Header extends Component {
                     </SearchWrapper>
                 </Nav>
                 <Addition>
-                    <Button className='writing'>
-                        <span className="iconfont">&#xe600;</span>
-                        Post
-                    </Button>
+                    <Link to = '/write'>
+                        <Button className='writing'>
+                            <span className="iconfont">&#xe600;</span>
+                            Post
+                        </Button>
+                    </Link>
                     <Button className='reg'>Sign up</Button>
                 </Addition>
             </HeaderWrapper>
@@ -123,20 +125,20 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         handleInputFocus(list) {
-            (list.size === 0) && dispatch(actionCreator.getList());
-            dispatch(actionCreator.searchFocus());
+            (list.size === 0) && dispatch(headeractionCreators.getList());
+            dispatch(headeractionCreators.searchFocus());
         },
 
         handleInputBlur() {
-            dispatch(actionCreator.searchBlur());
+            dispatch(headeractionCreators.searchBlur());
         },
 
         handleMouseEnter() {
-            dispatch(actionCreator.mouseEnter());
+            dispatch(headeractionCreators.mouseEnter());
         },
 
         handleMouseLeave() {
-            dispatch(actionCreator.mouseLeave());
+            dispatch(headeractionCreators.mouseLeave());
         },
 
         handleChangePage(page, totalPage, spin) {
@@ -148,9 +150,9 @@ const mapDispatchToProps = (dispatch) => {
             }
             spin.style.transform = 'rotate(' + (orginAngle + 360) + 'deg)';
             if (page < totalPage) {
-                dispatch(actionCreator.changePage(page + 1));
+                dispatch(headeractionCreators.changePage(page + 1));
             } else {
-                dispatch(actionCreator.changePage(1));
+                dispatch(headeractionCreators.changePage(1));
             }
         },
 
