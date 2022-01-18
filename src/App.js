@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './common/header';
 import { GolbalIcon } from './statics/iconfont/iconfont';
 import store from './store';
@@ -15,10 +15,8 @@ class App extends Component {
                     <BrowserRouter>
                         <Header />
                         <GolbalIcon />
-                        <Routes>
-                            <Route path='/' exact element={<Home />}></Route>
-                            <Route path='/detail' element={<Detail />}></Route>
-                        </Routes>
+                        <Route path='/' exact component={Home}></Route>
+                        <Route path='/detail/:id' exact component={Detail}></Route>
                     </BrowserRouter>
                 </div>
             </Provider>
