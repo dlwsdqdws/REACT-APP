@@ -25,7 +25,7 @@
     
         "recommendList" : [{
             "id" : 1,
-            "imgUrl" : "https://16mhpx3atvadrnpip2kwi9or-wpengine.netdna-ssl.com/wp-content/uploads/2021/04/Main-USC-Viterbi-Logo-480x160-1.png"
+            "imgUrl" : "https://16mhpx3atvadrnpip2kwi9or-wpengine.netdna-ssl.com/wp-content/uploads/2021/04/USC-Shield.png"
         },{
             "id" : 2,
             "imgUrl" : "https://16mhpx3atvadrnpip2kwi9or-wpengine.netdna-ssl.com/wp-content/uploads/2021/04/Main-USC-Viterbi-Logo-480x160-1.png"
@@ -33,16 +33,28 @@
     
         "writerList" : [{
             "id" : 1,
-            "name" : "Lei Lu"
+            "name" : "Xiaohuang Liu",
+            "writeNum" : 3002,
+            "star" : 500,
+            "imgUrl" : "https://upload.jianshu.io/users/upload_avatars/12665193/828a449f-efbb-4540-b0af-f6c314810515.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp"
         },{
             "id" : 2,
-            "name" : "Hapi Yu"
+            "name" : "Hapi Yu",
+            "writeNum" : 999,
+            "star" : 250,
+            "imgUrl" : "https://upload.jianshu.io/users/upload_avatars/2587459/d72143bc-b0e5-48be-9931-fde100754543.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp"
         },{
             "id" : 3,
-            "name" : "Xiong Xiong"
+            "name" : "Xiong Xiong",
+            "writeNum" : 302,
+            "star" : 100,
+            "imgUrl" : "https://upload.jianshu.io/users/upload_avatars/3627484/eb973bb9-37ba-4d07-acec-850c0a66d1bb.png?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp"
         },{
             "id" : 4,
-            "name" : "Ha Pi"
+            "name" : "Dai Fo",
+            "writeNum" : 52,
+            "star" : 90,
+            "imgUrl" : "https://upload.jianshu.io/users/upload_avatars/1835526/9bc600ce-7672-42b8-b03b-1a779593dd45.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp"
         }]
     }
 }

@@ -104,25 +104,41 @@ export const RecommendItem = styled.div`
 `;
 
 export const WriterWrapper = styled.div`
-    overflow : hidden;
-	width: 278px;
-	border: 1px solid #dcdcdc;
-	border-radius: 3px;
-	height: 300px;
-	line-height: 300px;
-	text-align: center;
+
 `;
 
 export const WriterItem = styled.div`
-    width : 278px;
-    height : 30px;
-    border: 1px solid #dcdcdc;
-    border-radius : 10px;
-    line-height : 27px;
-    font-size : 18px;
-    fontweight : bold;
-    color : #333;
-    background : pink;
+    margin-bottom : 10px;
+    overflow : hidden;
+    img{
+        float: left;
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+        border-radius: 50%;
+        border: 1px solid #ddd;
+        cursor: pointer;
+      }
+      .name{
+        display: inline-block;
+        padding-top: 5px;
+        margin-left: 3px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .follow {
+        display: inline-block;
+        float: right;
+        padding-top: 5px;
+        font-size: 13px;
+        color: #42c02e;
+        cursor: pointer;
+      }
+      p{
+        margin-top: 10px;
+        font-size: 12px;
+        color: #969696;
+      }
 `;
 
 export const BackTop = styled.div`
