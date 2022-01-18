@@ -11,8 +11,8 @@ class Login extends PureComponent {
 			return (
 				<LoginWrapper>
 					<LoginBox>
-						<Input placeholder='Username' innerRef={(input) => {this.account = input}}/>
-						<Input placeholder='Password' type='password' innerRef={(input) => {this.password = input}}/>
+						<Input placeholder='Username' ref={(input) => {this.account = input}}/>
+						<Input placeholder='Password' type='password' ref={(input) => {this.password = input}}/>
 						<Button onClick={() => this.props.login(this.account, this.password)}>Login</Button>
 					</LoginBox>
 				</LoginWrapper>
