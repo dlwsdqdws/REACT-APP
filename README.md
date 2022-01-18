@@ -17,10 +17,10 @@ npm run start
 <p align="center"><img src="https://github.com/dlwsdqdws/REACT-APP/blob/main/public/img/homePage.png" alt="Trojan" width="500" /></p>
 
 ### Login Page
-<p align="center"><img src="https://github.com/dlwsdqdws/REACT-APP/blob/main/public/img/homePage.png" alt="Trojan" width="500" /></p>
+<p align="center"><img src="https://github.com/dlwsdqdws/REACT-APP/blob/main/public/img/Login.png" alt="Trojan" width="500" /></p>
 
 ### Detail Page
-<p align="center"><img src="https://github.com/dlwsdqdws/REACT-APP/blob/main/public/img/homePage.png" alt="Trojan" width="500" /></p>
+<p align="center"><img src="https://github.com/dlwsdqdws/REACT-APP/blob/main/public/img/Detail.png" alt="Trojan" width="500" /></p>
 
 ## Project Structure
 ```
