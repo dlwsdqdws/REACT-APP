@@ -168,10 +168,12 @@ export const Button = styled.div`
     border : 1px solid #ec6149;
     font-size : 14px;
     &.reg {
+        cursor : pointer;
         color : #ec6149;
     }
     &.writing {
         color : #fff;
+        cursor : pointer;
         background : #ec6149;
     }
 `;
