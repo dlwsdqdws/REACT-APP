@@ -5,7 +5,7 @@ import Header from './common/header';
 import { GolbalIcon } from './statics/iconfont/iconfont';
 import store from './store';
 import Home from './pages/home';
-import Detail from './pages/detail';
+import Detail from './pages/detail/loadable.js';
 import Login from './pages/login';
 import Write from './pages/write';
 
